@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Review signups</title>
+</head>
+<body>
+
+<h1>Here are all participants for reviewing:</h1>
+<ul>
+    <li th:each="signup : ${signups}">
+        <span th:text="${signup.name}">Name</span> --
+        <span th:text="${signup.address}">Address</span> --
+        <a th:href="@{/signups/delete/{id} (id=${signup.id})}" th:text="Delete">Delete</a>
+    </li>
+</ul>
+<a th:href="@{/}">Home</a>
+
+</body>
+</html>

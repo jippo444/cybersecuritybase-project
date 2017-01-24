@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
     <head>
         <title>Sign up form</title>
     </head>
     <body>
+        <form action="/logout" th:action="@{/logout}" method="POST">
+            <p><input type="submit" value="Logout" /></p>
+        </form>
 
         <h1>Sign up to the event using this form</h1>
 
@@ -14,5 +17,6 @@
         </form>
 
         <p></p>
+        <a sec:authorize="hasAuthority('ADMIN')" th:href="@{/admin}">Admin page</a>
     </body>
 </html>
