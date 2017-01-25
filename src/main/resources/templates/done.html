@@ -8,7 +8,7 @@
         <h1>Thank you! You have been signed up to the event!</h1>
         <h2>All participants: </h2>
         <ul>
-            <li th:each="participant : ${participants}"><span th:text="${participant.name}" ></span></li>
+            <li th:each="participant : ${participants}"><span th:utext="${participant.name}" ></span></li>
         </ul>
         <a th:href="@{/}">Home</a>
     </body>

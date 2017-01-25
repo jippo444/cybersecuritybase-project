@@ -29,9 +29,13 @@ public class SignupController {
     public String subitForm(@RequestParam String name, @RequestParam String address, Model model) {
         signupRepository.save(new Signup(name, address));
         model.addAttribute("participants", signupRepository.findAll());
-        return "done";
+        return "redirect:/done";
     }
 
-
+    @RequestMapping(value = "/done", method = RequestMethod.GET)
+    public String showParticipants(Model model) {
+        model.addAttribute("participants", signupRepository.findAll());
+        return "done";
+    }
 
 }

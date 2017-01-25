@@ -22,8 +22,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         // no real security at the moment
         http.csrf().disable();
-        http.headers().frameOptions().disable();
-        http.headers().xssProtection().disable();
+//        http.headers().frameOptions().disable();
+//        http.headers().xssProtection().disable();
         http.authorizeRequests().antMatchers("/form").authenticated();
         http.authorizeRequests().antMatchers("/admin").hasAuthority("ADMIN");
 //        http.authorizeRequests().antMatchers("/signups/**").hasAuthority("ADMIN");
@@ -31,6 +31,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .anyRequest().permitAll();
         http.sessionManagement().enableSessionUrlRewriting(true);
         http.formLogin().permitAll().and().logout();
+        http.formLogin().permitAll();
         http.logout().invalidateHttpSession(false);
 
     }
